@@ -6,6 +6,20 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createApp, h } from 'vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
 
+//primevue
+import PrimeVue from 'primevue/config';
+import Aura from '@primevue/themes/aura';
+import Ripple from 'primevue/ripple';
+
+//components
+import Button from 'primevue/button';
+
+//primevue forms
+import InputText from 'primevue/inputtext';
+
+//aerocast
+import AppLayout from './Layouts/App.vue'
+
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 createInertiaApp({
@@ -18,7 +32,16 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         return createApp({ render: () => h(App, props) })
             .use(plugin)
+            .use(PrimeVue, {
+                ripple: true,
+                theme: {
+                    preset: Aura
+                }
+            })
             .use(ZiggyVue)
+            .component('App', AppLayout)
+            .component('Button', Button)
+            .component('InputText', InputText)
             .mount(el);
     },
     progress: {
