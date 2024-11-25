@@ -13,11 +13,13 @@
           </div>
           <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div class="flex shrink-0 items-center">
-              <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
+              <v-link href="/">
+                <img class="h-12 w-auto" src="/storage/images/AeroCast.png" :alt="$page.props.app.name" />
+              </v-link>
             </div>
-            <div class="hidden sm:ml-6 sm:block">
+            <div class="hidden sm:ml-6 sm:block mt-2">
               <div class="flex space-x-4">
-                <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-zinc-900 text-white' : 'text-zinc-300 hover:bg-zinc-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+                <v-link v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-zinc-900 text-white' : 'text-zinc-300 hover:bg-zinc-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</v-link>
               </div>
             </div>
           </div>
@@ -34,19 +36,19 @@
                 <MenuButton class="relative flex rounded-full bg-zinc-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-zinc-800">
                   <span class="absolute -inset-1.5" />
                   <span class="sr-only">Open user menu</span>
-                  <img class="size-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                  <img class="size-8 rounded-full" src="/storage/images/AeroCast.png" alt="" />
                 </MenuButton>
               </div>
               <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
-                <MenuItems class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none">
+                <MenuItems class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-zinc-800 py-1 shadow-lg ring-1 ring-black/5 focus:outline-none">
                   <MenuItem v-slot="{ active }">
-                    <a href="#" :class="[active ? 'bg-zinc-100 outline-none' : '', 'block px-4 py-2 text-sm text-zinc-700']">Your Profile</a>
+                    <a href="#" :class="[active ? 'bg-zinc-700 outline-none' : '', 'block px-4 py-2 text-sm text-zinc-300']">Your Profile</a>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
-                    <a href="#" :class="[active ? 'bg-zinc-100 outline-none' : '', 'block px-4 py-2 text-sm text-zinc-700']">Settings</a>
+                    <a href="#" :class="[active ? 'bg-zinc-700 outline-none' : '', 'block px-4 py-2 text-sm text-zinc-300']">Settings</a>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
-                    <a href="#" :class="[active ? 'bg-zinc-100 outline-none' : '', 'block px-4 py-2 text-sm text-zinc-700']">Sign out</a>
+                    <a href="#" :class="[active ? 'bg-zinc-700 outline-none' : '', 'block px-4 py-2 text-sm text-zinc-300']">Sign out</a>
                   </MenuItem>
                 </MenuItems>
               </transition>
@@ -61,6 +63,11 @@
         </div>
       </DisclosurePanel>
     </Disclosure>
+
+    <!-- main content -->
+    <div class="md:p-8 p-4">
+      <slot></slot>
+    </div>
   </template>
 
   <script setup>
@@ -68,9 +75,7 @@
   import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 
   const navigation = [
-    { name: 'Dashboard', href: '#', current: true },
-    { name: 'Team', href: '#', current: false },
-    { name: 'Projects', href: '#', current: false },
-    { name: 'Calendar', href: '#', current: false },
+    { name: 'Dashboard', href: '/', current: true },
+    { name: 'Profiles', href: 'profiles', current: false },
   ]
   </script>
