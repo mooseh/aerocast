@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://github.com/mooseh/aerocast" target="_blank">
-        <img src="https://github.com/mooseh/aerocast/storage/images/AeroCast.png" width="400" alt="AeroCast Logo">
+        <img src="https://github.com/mooseh/aerocast/blob/main/storage/app/public/images/AeroCast.png?raw=true" width="400" alt="AeroCast Logo">
     </a>
 </p>
 
