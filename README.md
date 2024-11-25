@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://laravel.com" target="_blank">
+    <a href="https://github.com/mooseh/aerocast" target="_blank">
         <img src="https://github.com/mooseh/aerocast/storage/images/AeroCast.png" width="400" alt="AeroCast Logo">
     </a>
 </p>
